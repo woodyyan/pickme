@@ -4,5 +4,8 @@
   { "name": "炭火屋烧烤",   "category": "bbq",     "note": "烤五花绝了，深夜营业", "location": "夜市街 12 号" },
   { "name": "川辣江湖",     "category": "sichuan", "note": "水煮鱼和水煮牛肉", "location": "美食城 2F" },
   { "name": "La Casa 西餐", "category": "west",    "note": "战斧牛排，适合庆祝", "location": "滨江步道 5 号" },
-  { "name": "茶颜观色",     "category": "tea",     "note": "幽兰拿铁，排队王", "location": "中心广场店" }
+  { "name": "茶颜观色",     "category": "tea",     "note": "幽兰拿铁，排队王", "location": "中心广场店" },
+  { "name": "禾源甲·龙虾·烧烤", "category": "bbq",      "note": "", "location": "南湖逸家" },
+  { "name": "四季知了·石锅土鲫鱼", "category": "fishhot", "note": "", "location": "顺兴路618号" },
+  { "name": "大味麻椒鱼火锅",   "category": "fishhot", "note": "", "location": "祥鹤二街" }
 ]

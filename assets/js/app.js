@@ -14,6 +14,7 @@
     { id: "hotpot",  label: "火锅", bg: "var(--cat-hotpot-bg)",  fg: "var(--cat-hotpot-fg)" },
     { id: "jp",      label: "日料", bg: "var(--cat-jp-bg)",      fg: "var(--cat-jp-fg)" },
     { id: "bbq",     label: "烧烤", bg: "var(--cat-bbq-bg)",     fg: "var(--cat-bbq-fg)" },
+    { id: "fishhot", label: "鱼火锅", bg: "var(--cat-fishhot-bg)", fg: "var(--cat-fishhot-fg)" },
     { id: "sichuan", label: "川菜", bg: "var(--cat-sichuan-bg)", fg: "var(--cat-sichuan-fg)" },
     { id: "west",    label: "西餐", bg: "var(--cat-west-bg)",    fg: "var(--cat-west-fg)" },
     { id: "tea",     label: "奶茶", bg: "var(--cat-tea-bg)",     fg: "var(--cat-tea-fg)" },
