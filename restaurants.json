@@ -1,0 +1,8 @@
+[
+  { "name": "巷子口老火锅", "category": "hotpot",  "note": "牛油锅底，毛肚必点", "location": "解放路 88 号" },
+  { "name": "樱之时日料",   "category": "jp",      "note": "三文鱼新鲜，午市套餐划算", "location": "万象城 3F" },
+  { "name": "炭火屋烧烤",   "category": "bbq",     "note": "烤五花绝了，深夜营业", "location": "夜市街 12 号" },
+  { "name": "川辣江湖",     "category": "sichuan", "note": "水煮鱼和水煮牛肉", "location": "美食城 2F" },
+  { "name": "La Casa 西餐", "category": "west",    "note": "战斧牛排，适合庆祝", "location": "滨江步道 5 号" },
+  { "name": "茶颜观色",     "category": "tea",     "note": "幽兰拿铁，排队王", "location": "中心广场店" }
+]

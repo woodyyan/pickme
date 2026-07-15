@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#FFF9F4" />
+  <meta name="description" content="PickMe 聚餐盲盒 — 收录大家爱吃的餐厅，聚餐时一键抽盲盒，再也不用纠结吃什么。" />
+  <title>PickMe 聚餐盲盒</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主内容</a>
+
+  <header class="app-header">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="28" height="28" fill="none">
+          <rect x="4" y="11" width="24" height="17" rx="5" fill="currentColor"/>
+          <path d="M4 15c4 3 20 3 24 0" stroke="#FFF9F4" stroke-width="2" stroke-linecap="round" opacity=".55"/>
+          <path d="M16 4c-3 0-3 4-1 5h2c2-1 2-5-1-5Z" fill="currentColor"/>
+          <circle cx="16" cy="20" r="3.4" fill="#FFF9F4"/>
+        </svg>
+      </span>
+      <span class="brand-text">PickMe<small>聚餐盲盒</small></span>
+    </div>
+    <button class="icon-btn" id="aboutBtn" type="button" aria-label="使用说明">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="9"/><path d="M9.2 9.3a2.8 2.8 0 0 1 5.4 1c0 1.9-2.8 2.4-2.8 4.2"/><path d="M12 17.5h.01"/>
+      </svg>
+    </button>
+  </header>
+
+  <main id="main" class="app-main">
+    <!-- ============ PICK VIEW ============ -->
+    <section id="view-pick" class="view" aria-label="抽盲盒">
+      <div class="pick-hero">
+        <p class="pick-eyebrow">今晚吃啥？</p>
+
+        <div class="blindbox-stage" id="blindboxStage">
+          <div class="blindbox" id="blindbox" aria-hidden="true">
+            <span class="box-glow"></span>
+            <span class="box-lid"></span>
+            <span class="box-body">
+              <span class="box-ribbon-v"></span>
+              <span class="box-ribbon-h"></span>
+              <span class="box-bow"></span>
+            </span>
+          </div>
+        </div>
+
+        <p class="pick-meta" id="pickMeta" aria-live="polite">已收录 0 家餐厅</p>
+
+        <div class="cat-filter" id="catFilter" role="group" aria-label="按分类筛选"></div>
+
+        <button class="btn btn-primary btn-lg btn-block" id="openBtn" type="button">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3v4M5 8h14l-1.2 9.5a2 2 0 0 1-2 1.5H8.2a2 2 0 0 1-2-1.5L5 8Z"/><path d="M9.5 12h5"/>
+          </svg>
+          开盲盒
+        </button>
+      </div>
+
+      <!-- Result card -->
+      <article class="result-card" id="result" hidden aria-live="polite">
+        <span class="result-tag" id="resultTag">盲盒开出</span>
+        <span class="result-cat" id="resultCat"></span>
+        <h2 class="result-name" id="resultName"></h2>
+        <p class="result-note" id="resultNote"></p>
+        <p class="result-loc" id="resultLoc"></p>
+        <div class="result-actions">
+          <button class="btn btn-ghost" id="rerollBtn" type="button">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/>
+            </svg>
+            换一家
+          </button>
+          <button class="btn btn-primary" id="confirmBtn" type="button">就这家！</button>
+        </div>
+      </article>
+    </section>
+
+    <!-- ============ LIBRARY VIEW ============ -->
+    <section id="view-library" class="view" hidden aria-label="餐厅库">
+      <div class="library-head">
+        <h1 class="library-title">我的餐厅库</h1>
+        <button class="btn btn-primary" id="addBtn" type="button">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          添加
+        </button>
+      </div>
+
+      <div class="library-tools">
+        <label class="search" for="searchInput">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.2-3.2"/></svg>
+          <input id="searchInput" type="search" placeholder="搜索餐厅或备注" autocomplete="off" />
+        </label>
+      </div>
+
+      <div class="stat-row" id="statRow">
+        <div class="stat"><span class="stat-num" id="statTotal">0</span><span class="stat-label">家餐厅</span></div>
+        <div class="stat"><span class="stat-num" id="statCats">0</span><span class="stat-label">种分类</span></div>
+      </div>
+
+      <div class="rest-grid" id="restGrid"></div>
+
+      <div class="empty-state" id="libEmpty" hidden>
+        <span class="empty-illu" aria-hidden="true">
+          <svg viewBox="0 0 96 96" width="84" height="84" fill="none">
+            <rect x="18" y="34" width="60" height="42" rx="10" fill="#FFE3DA"/>
+            <path d="M18 44c9 6 51 6 60 0" stroke="#FF6B4A" stroke-width="3" stroke-linecap="round" opacity=".5"/>
+            <path d="M48 16c-7 0-7 10-2 12h4c5-2 5-12-2-12Z" fill="#FF6B4A"/>
+          </svg>
+        </span>
+        <h3>餐厅库还是空的</h3>
+        <p>常去的店在 <code>restaurants.json</code> 里添加并部署；临时想加一家，点下面的按钮即可（仅本机保存）。</p>
+        <button class="btn btn-primary" id="emptyAddBtn" type="button">添加第一家餐厅</button>
+      </div>
+    </section>
+  </main>
+
+  <nav class="bottom-nav" aria-label="主导航">
+    <button class="nav-btn is-active" data-view="pick" type="button" aria-current="page">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v4M5 8h14l-1.2 9.5a2 2 0 0 1-2 1.5H8.2a2 2 0 0 1-2-1.5L5 8Z"/><path d="M9.5 12h5"/></svg>
+      <span>盲盒</span>
+    </button>
+    <button class="nav-btn" data-view="library" type="button">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+      <span>餐厅库</span>
+    </button>
+  </nav>
+
+  <!-- ============ MODAL ============ -->
+  <div class="modal-root" id="modal" hidden>
+    <div class="modal-scrim" data-close="1"></div>
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <header class="modal-head">
+        <h2 id="modalTitle">添加餐厅</h2>
+        <button class="icon-btn" id="modalClose" type="button" aria-label="关闭">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+      </header>
+      <form id="restForm" class="modal-body" novalidate>
+        <input type="hidden" id="restId" />
+        <div class="field">
+          <label for="f-name">餐厅名称 <span class="req">*</span></label>
+          <input id="f-name" name="name" type="text" maxlength="40" placeholder="例如：巷子口火锅" required />
+          <small class="field-err" id="err-name" hidden>请填写餐厅名称</small>
+        </div>
+        <div class="field">
+          <label for="f-cat">分类</label>
+          <div class="select-wrap">
+            <select id="f-cat" name="category"></select>
+            <svg class="select-caret" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </div>
+        </div>
+        <div class="field">
+          <label for="f-note">备注</label>
+          <textarea id="f-note" name="note" rows="2" maxlength="80" placeholder="例如：毛肚必点，人均 120"></textarea>
+        </div>
+        <div class="field">
+          <label for="f-loc">位置</label>
+          <input id="f-loc" name="location" type="text" maxlength="60" placeholder="例如：万象城 4 楼" />
+        </div>
+        <div class="modal-actions">
+          <button class="btn btn-ghost" type="button" data-close="1">取消</button>
+          <button class="btn btn-primary" type="submit">保存</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ============ ABOUT MODAL ============ -->
+  <div class="modal-root" id="aboutModal" hidden>
+    <div class="modal-scrim" data-close="1"></div>
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="aboutTitle">
+      <header class="modal-head">
+        <h2 id="aboutTitle">怎么用</h2>
+        <button class="icon-btn" id="aboutClose" type="button" aria-label="关闭">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+      </header>
+      <div class="modal-body about-body">
+        <ol class="about-steps">
+          <li><strong>常去的店写进文件</strong><span>编辑项目里的 <code>restaurants.json</code> 添加餐厅，提交后 Vercel 自动更新，数据永久保留、大家共享。</span></li>
+          <li><strong>临时想加一家</strong><span>聚餐现场想加新店，用页面里的「添加」即可，仅存在本机，刷新仍在，清缓存会丢。</span></li>
+          <li><strong>开盲盒</strong><span>打开「盲盒」点一下，从文件店 + 本机临时店中随机抽一家，像拆盲盒一样；不满意就「换一家」。</span></li>
+        </ol>
+        <p class="about-note">文件里的餐厅对所有人一致；本机临时添加只存在你这台设备的浏览器里（localStorage）。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
