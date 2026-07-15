@@ -317,6 +317,7 @@ button { font-family: inherit; }
 
 /* ===================== Modal ===================== */
 .modal-root { position: fixed; inset: 0; z-index: 80; display: grid; place-items: end center; }
+.modal-root[hidden] { display: none; }
 .modal-scrim { position: absolute; inset: 0; background: rgba(42, 33, 28, .42); backdrop-filter: blur(2px); animation: fade .2s ease; }
 @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
 .modal-panel {
